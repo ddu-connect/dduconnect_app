@@ -24,7 +24,7 @@ export default class AboutUsScreen extends Component{
     async getVideo(){
       console.log("in get video");
       
-      fetch('https://raw.githubusercontent.com/kiranbhanushali/DDUConnectDatabase/master/Notification.json', {method: "GET"})
+      fetch('https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/Notification.json', {method: "GET"})
       .then((response) => response.json())
     .then((responseData) =>
      {

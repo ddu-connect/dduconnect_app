@@ -10,7 +10,7 @@ export default class PlacementScreen extends Component{
 	
 		var source = ''
 		
-			source = {uri:'https://kiranbhanushali.github.io/DDUConnectDatabase/placement.pdf',cache:false};
+			source = {uri:'https://ddu-connect.github.io/dduconnect_database/placement.pdf',cache:false};
 	
 
 		return (

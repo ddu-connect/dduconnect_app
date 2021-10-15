@@ -21,7 +21,7 @@ export default class MembersScreen extends Component {
       this.setState({d:this.props.navigation.state.params})
     if (!this.state.mem) {
       return fetch(
-        'https://kiranbhanushali.github.io/DDUConnectDatabase/meetourteamcur.json',
+        'https://ddu-connect.github.io/dduconnect_database/meetourteamcur.json',
       )
         .then(response => response.json())
         .then(responseJson => {

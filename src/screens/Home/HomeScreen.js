@@ -19,7 +19,7 @@ const RootStack = createStackNavigator(
 		AboutUs: { screen: AboutUsScreen },
 		MeetOurTeam: {screen: MeetOurTeamScreen }
 	});
-	const image = { uri: "https://raw.githubusercontent.com/kiranbhanushali/DDUConnectDatabase/master/notificationbg.jpeg" };
+	const image = { uri: "https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/notificationbg.jpeg" };
 export default class HomeScreen extends Component{
 	static navigationOptions = ({navigation}) =>{
 		return {
@@ -158,7 +158,7 @@ export default class HomeScreen extends Component{
 	  async getPosterStatus(){
 		   console.log("in poster status");
 		   
-		   fetch('https://raw.githubusercontent.com/kiranbhanushali/DDUConnectDatabase/master/Notification.json', {method: "GET"})
+		   fetch('https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/Notification.json', {method: "GET"})
 		   .then((response) => response.json())
 		 .then((responseData) =>
 			{

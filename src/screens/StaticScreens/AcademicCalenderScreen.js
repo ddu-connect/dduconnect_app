@@ -11,10 +11,10 @@ export default class AcademicCalenderScreen extends Component{
 		console.log(d);
 		var source = ''
 		if(d==1){
-			source = {uri:'https://kiranbhanushali.github.io/DDUConnectDatabase/academiccalender_sem2.pdf',cache:true};
+			source = {uri:'https://ddu-connect.github.io/dduconnect_database/academiccalender_sem2.pdf',cache:true};
 		}
 		else{
-			source = {uri:'https://kiranbhanushali.github.io/DDUConnectDatabase/academiccalender.pdf',cache:true};
+			source = {uri:'https://ddu-connect.github.io/dduconnect_database/academiccalender.pdf',cache:true};
 		}
 
 		return (

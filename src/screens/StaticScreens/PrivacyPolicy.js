@@ -8,7 +8,7 @@ export default class PrivacyPolicy extends Component{
 
 	render(){
 		
-		var source =  {uri:'https://kiranbhanushali.github.io/DDUConnectDatabase/privacypolicy.pdf',cache:false};
+		var source =  {uri:'https://ddu-connect.github.io/dduconnect_database/privacypolicy.pdf',cache:false};
 		
 
 		return (

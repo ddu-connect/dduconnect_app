@@ -22,7 +22,7 @@ export default function UpcomingEvents(){
     const [modalData, setModalData] = useState([]);
 
     useEffect(() => {
-        fetch('https://raw.githubusercontent.com/kiranbhanushali/DDUConnectDatabase/master/Events.json')
+        fetch('https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/Events.json')
             .then((response) => response.json())
             .then((responseJson) => {
                 let arr = responseJson
