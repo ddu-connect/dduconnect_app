@@ -11,11 +11,14 @@ on:
       - '*'
       - '!master'
 
+defaults:  
+  run:  
+    working-directory: ./android
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    # working-directory: ./android
 
     steps:
 
