@@ -11,10 +11,6 @@ on:
       - '*'
       - '!master'
 
-defaults:  
-  run:  
-    working-directory: ./android
-
 jobs:
   build:
 
