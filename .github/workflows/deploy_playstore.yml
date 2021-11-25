@@ -46,7 +46,7 @@ jobs:
       - name: Build Android App Bundle
         id: build
         run: |
-          cd android && ./gradlew bundleRelease --no-daemon
+          cd android && ./gradlew bundleRelease --no-daemon --stacktrace --scan
 
       - name: Generate Release APK
         run: |
