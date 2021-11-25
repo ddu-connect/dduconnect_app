@@ -2,9 +2,9 @@ name: Deploy to PlayStore
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, fix ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, fix ]
 
 jobs:
   setup:
@@ -38,14 +38,6 @@ jobs:
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
 
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: set up JDK 1.8
         uses: actions/setup-java@v1
         with:
@@ -55,14 +47,6 @@ jobs:
         id: build
         run: |
           cd android && ./gradlew bundleRelease --no-daemon
-
-  pre_release:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
 
       - name: Generate Release APK
         run: |
@@ -81,14 +65,6 @@ jobs:
       - name: Create service_account.json
         id: createServiceAccount
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-
-  deploy:
-    needs: pre_release
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
 
       - name: Deploy to Play Store (BETA)
         id: deploy

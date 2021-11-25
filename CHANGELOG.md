@@ -1,1 +1,1 @@
-Changed dependencies
+Beta Release after automated workflow
