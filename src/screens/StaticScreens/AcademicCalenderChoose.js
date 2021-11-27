@@ -1,61 +1,73 @@
-import React  , { Component ,PropType } from 'react';
-import { View ,Text ,TouchableOpacity,StyleSheet,Image,StatusBar} from 'react-native';
-import { Body,Icon,Button } from 'native-base';
-import {Header} from 'react-native-elements'
-export default class AcademicCalenderScreen extends Component{
-	
+import React, {Component, PropType} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  StatusBar,
+} from 'react-native';
+import {Body, Icon, Button} from 'native-base';
+import {Header} from 'react-native-elements';
+export default class AcademicCalenderScreen extends Component {
   render() {
     return (
-      
-        
-            
-      <Body style={{padding:0}}>
-          <Header backgroundColor='#fff'>
-          
+      <Body style={{padding: 0}}>
+        <Header backgroundColor="#fff">
           <Button transparent onPress={this.props.navigation.toggleDrawer}>
-          <Image
-						style={{width: 27, height:27 }}
-						source={require('../../assets/images/menu.png')}
-						/>
+            <Image
+              style={{width: 27, height: 27}}
+              source={require('../../assets/images/menu.png')}
+            />
           </Button>
-          <Text style={{fontFamily:'Montserrat-Bold',fontWeight:'900',marginTop:'5%'}}> Academic Calender </Text>
-          </Header>     
-      
-          <StatusBar translucent backgroundColor="rgba(0,0,0,0.5)" />
-        
+          <Text
+            style={{
+              fontFamily: 'Montserrat-Bold',
+              fontWeight: '900',
+              marginTop: '5%',
+            }}>
+            {' '}
+            Academic Calender{' '}
+          </Text>
+        </Header>
 
-        <View style={{flex:1,paddingHorizontal:10}}>
-      
+        <StatusBar translucent backgroundColor="rgba(0,0,0,0.5)" />
 
-        <View style={styles.separator} />
-        <Button transparent onPress={() => { this.props.navigation.navigate('AcademicCalender',{d:1});}}>
-        <Text style={styles.ButtonLayout} >SEM 1, 2</Text>
-      </Button>
-     
-      <View style={styles.separator} />
-      <Button transparent onPress={() => {this.props.navigation.navigate('AcademicCalender',{d:2})}}>
-        <Text  style={styles.ButtonLayout} >SEM 4, 6, 8 </Text>
-      </Button>
-        
-          
-      <View style={styles.separator} />
-          
+        <View style={{flex: 1, paddingHorizontal: 10}}>
+          <View style={styles.separator} />
+          <Button
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('AcademicCalender', {d: 1});
+            }}>
+            <Text style={styles.ButtonLayout}>SEM 1, 2</Text>
+          </Button>
 
-     </View>
+          <View style={styles.separator} />
+          <Button
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('AcademicCalender', {d: 2});
+            }}>
+            <Text style={styles.ButtonLayout}>SEM 4, 6, 8 </Text>
+          </Button>
 
-        
-        
+          <View style={styles.separator} />
+        </View>
       </Body>
-     
     );
   }
 }
 
-
-
 const styles = StyleSheet.create({
-  ButtonLayout: { fontSize: 15, color: '#000000', backgroundColor: "#ffffff", padding: 8,width:'100%',fontWeight:"bold"}
-  ,
+  ButtonLayout: {
+    fontSize: 15,
+    color: '#000000',
+    backgroundColor: '#ffffff',
+    padding: 8,
+    width: '100%',
+    fontWeight: 'bold',
+  },
   separator: {
     marginVertical: 8,
     borderBottomColor: '#737373',

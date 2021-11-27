@@ -1,79 +1,122 @@
-import React, { Component, PropType } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, StatusBar, Image, ScrollView, TouchableHighlight } from 'react-native';
-import { Body, Icon, Button, } from 'native-base';
-import { Header } from 'react-native-elements'
+import React, {Component, PropType} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  StatusBar,
+  Image,
+  ScrollView,
+  TouchableHighlight,
+} from 'react-native';
+import {Body, Icon, Button} from 'native-base';
+import {Header} from 'react-native-elements';
 export default class MeetOurTeamScreen extends Component {
-  
   render() {
     return (
-
-
-
-      <Body style={{ padding: 0 }}>
-        <Header backgroundColor='#fff'>
+      <Body style={{padding: 0}}>
+        <Header backgroundColor="#fff">
           <Button transparent onPress={this.props.navigation.toggleDrawer}>
-          <Image
-						style={{width: 27, height:27 }}
-						source={require('../../assets/images/menu.png')}
-						/>
+            <Image
+              style={{width: 27, height: 27}}
+              source={require('../../assets/images/menu.png')}
+            />
           </Button>
-          <Text style={{ fontFamily: 'Montserrat-Bold', fontWeight: '900', marginTop:'5%' }}> Meet Our Team </Text>
+          <Text
+            style={{
+              fontFamily: 'Montserrat-Bold',
+              fontWeight: '900',
+              marginTop: '5%',
+            }}>
+            {' '}
+            Meet Our Team{' '}
+          </Text>
         </Header>
         {/* main */}
         <StatusBar translucent backgroundColor="rgba(0,0,0,0.5)" />
-       <View style={{flex:1,paddingHorizontal:10}}>
-
-       
-      <View style={styles.separator} />
-          <TouchableOpacity  onPress={() => { this.props.navigation.navigate('Members', { d: 1 }); }}>
-                <View style={{flexDirection:'row',alignItems:'flex-start',}}>
-               <Text style={styles.ButtonLayout}>EDITORIAL</Text>
-                </View>
+        <View style={{flex: 1, paddingHorizontal: 10}}>
+          <View style={styles.separator} />
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate('Members', {d: 1});
+            }}>
+            <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
+              <Text style={styles.ButtonLayout}>EDITORIAL</Text>
+            </View>
           </TouchableOpacity>
 
-            <View style={styles.separator} />
-            <TouchableOpacity transparent onPress={() => { this.props.navigation.navigate('Members', { d: 0 }) }}>
-              <Text style={styles.ButtonLayout} >DESIGNING</Text>
-            </TouchableOpacity>
-            <View style={styles.separator} />
+          <View style={styles.separator} />
+          <TouchableOpacity
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('Members', {d: 0});
+            }}>
+            <Text style={styles.ButtonLayout}>DESIGNING</Text>
+          </TouchableOpacity>
+          <View style={styles.separator} />
 
-            <TouchableOpacity transparent onPress={() => { this.props.navigation.navigate('Members', { d: 2 }) }}>
-              <Text style={styles.ButtonLayout}>EVENT MANAGEMENT & ADVERTISING</Text>
-            </TouchableOpacity>
+          <TouchableOpacity
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('Members', {d: 2});
+            }}>
+            <Text style={styles.ButtonLayout}>
+              EVENT MANAGEMENT & ADVERTISING
+            </Text>
+          </TouchableOpacity>
 
-            <View style={styles.separator} />
-            
-            <TouchableOpacity transparent onPress={() => { this.props.navigation.navigate('Members', { d: 3 }) }}>
-              <Text style={styles.ButtonLayout}>FINANCE</Text>
-            </TouchableOpacity>
+          <View style={styles.separator} />
 
-            <View style={styles.separator} />
+          <TouchableOpacity
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('Members', {d: 3});
+            }}>
+            <Text style={styles.ButtonLayout}>FINANCE</Text>
+          </TouchableOpacity>
 
-            <TouchableOpacity transparent onPress={() => { this.props.navigation.navigate('Members', { d: 4 }) }}>
-              <Text style={styles.ButtonLayout}>PHOTOGRAPHY</Text>
-            </TouchableOpacity>
-            <View style={styles.separator} />
-            <TouchableOpacity transparent onPress={() => { this.props.navigation.navigate('Members', { d: 5 }) }}>
-              <Text style={styles.ButtonLayout}>WEB DEVELOPMENT</Text>
-            </TouchableOpacity>
-            <View style={styles.separator} />
-            <TouchableOpacity transparent onPress={() => { this.props.navigation.navigate('Members', { d: 6 }) }}>
-              <Text style={styles.ButtonLayout} >SUPPORTING</Text>
-            </TouchableOpacity>
-            <View style={styles.separator} />
+          <View style={styles.separator} />
 
-       </View>
-
-        
+          <TouchableOpacity
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('Members', {d: 4});
+            }}>
+            <Text style={styles.ButtonLayout}>PHOTOGRAPHY</Text>
+          </TouchableOpacity>
+          <View style={styles.separator} />
+          <TouchableOpacity
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('Members', {d: 5});
+            }}>
+            <Text style={styles.ButtonLayout}>WEB DEVELOPMENT</Text>
+          </TouchableOpacity>
+          <View style={styles.separator} />
+          <TouchableOpacity
+            transparent
+            onPress={() => {
+              this.props.navigation.navigate('Members', {d: 6});
+            }}>
+            <Text style={styles.ButtonLayout}>SUPPORTING</Text>
+          </TouchableOpacity>
+          <View style={styles.separator} />
+        </View>
       </Body>
-
     );
   }
 }
 
 const styles = StyleSheet.create({
-  ButtonLayout: { fontSize: 15, color: '#000000', backgroundColor: "#ffffff", padding: 8,width:'100%',fontWeight:"bold",marginVertical:8}
-  ,
+  ButtonLayout: {
+    fontSize: 15,
+    color: '#000000',
+    backgroundColor: '#ffffff',
+    padding: 8,
+    width: '100%',
+    fontWeight: 'bold',
+    marginVertical: 8,
+  },
   separator: {
     marginVertical: 8,
     borderBottomColor: '#737373',

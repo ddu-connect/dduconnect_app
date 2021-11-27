@@ -2,11 +2,10 @@ const IntroScreenDetails = [
   {
     key: 'somethun',
     title: 'Welcome',
-    text: 'DDU Connect is a platform by the students, for the students which aims at connecting people.',
+    text:
+      'DDU Connect is a platform by the students, for the students which aims at connecting people.',
     image: require('../assets/images/ic_food.png'),
     backgroundColor: '#7cea9c',
-    
-  
   },
   {
     key: 'somethun-dos',
@@ -16,7 +15,6 @@ const IntroScreenDetails = [
   Stay updated with latest happenings of DDU `,
     image: require('../assets/images/ic_movie.png'),
     backgroundColor: '#55d6be',
-    
   },
   {
     key: 'somethun1',
@@ -34,7 +32,7 @@ Link to privacy policy of third party service providers used by the app
 • Google Play Services
 • Wordpress
 Cookies
-Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device\'s internal memory.
+Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
 This Service does not use these “cookies” explicitly. However, the app may use third party code and libraries that use “cookies” to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
 DDUConnect Privacy Policy
 Service Providers
@@ -54,10 +52,9 @@ Contact Us
 If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at dduconnect.com.`,
     image: require('../assets/images/ic_discount.png'),
     backgroundColor: '#c873f4',
-    imageStyle :{
-      resizeMode :'center'
-    }
-  }
-
+    imageStyle: {
+      resizeMode: 'center',
+    },
+  },
 ];
 export default IntroScreenDetails;

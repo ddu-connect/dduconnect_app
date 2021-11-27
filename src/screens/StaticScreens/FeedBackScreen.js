@@ -1,14 +1,11 @@
-import React  , { Component ,PropType } from 'react';
-import { View ,Text ,Button} from 'react-native';
+import React, {Component, PropType} from 'react';
+import {View, Text, Button} from 'react-native';
 
-export default class FeedBackScreen extends Component{
-
-	static navigationOptions = {
+export default class FeedBackScreen extends Component {
+  static navigationOptions = {
     drawerLabel: 'FeedBack',
-    
   };
-	render(){
-		return <Text> FeedBackScreen </Text>
-	}
-
+  render() {
+    return <Text> FeedBackScreen </Text>;
+  }
 }
