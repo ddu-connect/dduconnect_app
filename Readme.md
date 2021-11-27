@@ -1,3 +1,8 @@
+## New Release
+
+- Change versionName as shown [below](#app-version-related-issues)
+- Put release notes inside `whatsnew/whatsnew-en-US` file. This will be shown in playstore in `What's new` section of the release
+
 ## Debuging
 
 ### App version related issues
@@ -6,7 +11,7 @@ If you are getting error such as:
 ```
 Error: APK specifies a version code that has already been used.
 ```
-Then change `versionName` in [./android/app/build.gradle](./android/app/build.gradle) file
+Then change `versionName` in [`./android/app/build.gradle`](./android/app/build.gradle) file
 ```
 android {
     defaultConfig {
