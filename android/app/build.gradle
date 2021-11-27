@@ -145,7 +145,7 @@ android {
         applicationId "com.dduconnect.dduconnect"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 110
+        versionCode 1101
         versionName "1.1.0"
     }
     splits {
