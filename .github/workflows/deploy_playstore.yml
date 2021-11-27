@@ -2,9 +2,11 @@ name: Deploy to PlayStore
 
 on:
   push:
-    branches: [ master, fix ]
+    branches: [ master ] 
+    tags:
+      - "v*.*.*"
   pull_request:
-    branches: [ master, fix ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -66,7 +68,7 @@ jobs:
         id: createServiceAccount
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
 
-      - name: Deploy to Play Store (BETA)
+      - name: Deploy to Play Store (Production)
         id: deploy
         uses: r0adkll/upload-google-play@v1.0.15
         with:
@@ -74,7 +76,7 @@ jobs:
           packageName: com.dduconnect.dduconnect
           releaseFiles: |
             android/app/build/outputs/bundle/release/app-release.aab
-          track: beta
+          track: production
           whatsNewDirectory: whatsnew
 
       - name: Release
@@ -84,8 +86,8 @@ jobs:
           files: |
             android/app/build/outputs/bundle/release/app-release.*
           tag_name: ${{ steps.vars.outputs.sha_short }}
-          release_name: Release ${{ steps.vars.outputs.sha_short }}
-          body_path: CHANGELOG.md
+          name: Release ${{ steps.vars.outputs.sha_short }}
+          body_path: whatsnew/whatsnew-en-US
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
