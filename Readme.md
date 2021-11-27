@@ -27,6 +27,8 @@ android {
 
 ### Generate signed apk from aab
 ```
+cd app/build/outputs/bundle/release
+
 bundletool build-apks --bundle=app-release.aab --output=converted_zip.apks --mode=universal --overwrite \
     --ks=../../../../release.keystore \
     --ks-pass=pass:$STORE_PASSWORD \
