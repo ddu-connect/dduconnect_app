@@ -4,6 +4,8 @@ name: Beta Release
 on:
   push:
     branches: [ develop ] 
+    tags:
+      - "v*.*.*"
   pull_request:
     branches: [ develop ]
 
