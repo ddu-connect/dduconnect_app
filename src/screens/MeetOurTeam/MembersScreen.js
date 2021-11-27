@@ -1,5 +1,5 @@
 import React, {Component, PropType} from 'react';
-import {View, ActivityIndicator,Image, ScrollView} from 'react-native';
+import {View, ActivityIndicator, Image, ScrollView} from 'react-native';
 import {
   Header,
   Title,
@@ -13,12 +13,11 @@ import {
   Icon,
   CardItem,
 } from 'native-base';
-import { widthPercentageToDP } from 'react-native-responsive-screen';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 
 export default class MembersScreen extends Component {
-
   componentDidMount() {
-      this.setState({d:this.props.navigation.state.params})
+    this.setState({d: this.props.navigation.state.params});
     if (!this.state.mem) {
       return fetch(
         'https://ddu-connect.github.io/dduconnect_database/meetourteamcur.json',
@@ -28,9 +27,9 @@ export default class MembersScreen extends Component {
           this.setState(
             {
               isLoading: false,
-              nmem:responseJson[this.props.navigation.state.params.d],
+              nmem: responseJson[this.props.navigation.state.params.d],
             },
-            function() {},
+            function () {},
           );
         })
         .catch(error => {
@@ -41,37 +40,45 @@ export default class MembersScreen extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = {isLoading: true,};
+    this.state = {isLoading: true};
     global.mem = this.state.mem;
   }
 
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{flex: 1,justifyContent:'center',alignSelf:'center'}}>
+        <View style={{flex: 1, justifyContent: 'center', alignSelf: 'center'}}>
           <ActivityIndicator size="large" color="#0000ff" />
         </View>
       );
     }
     // console.log(this.props.navigation.state.params)
- 
+
     console.log(this.state.nmem);
     return (
       <Container>
         <View style={{flex: 1}}>
           <ScrollView>
-          
-          <View style={{flex: 1,width:widthPercentageToDP('65%'),justifyContent:'center',alignSelf:'center'}}>
-            {this.state.nmem.members.map((item, key) => (
-              <Card style={{flex:1,alignItems:'center',padding:8}} key={key}>
-                 <Image  	source={{	uri:item.image
-											}} style={{width:100,height:100,borderRadius:100/2}}/>
-                <Text style={{fontSize:14}}> {item.name}</Text>
-                <Text style={{fontSize:7}}>{item.post}</Text>
-                 
-              </Card>
-            ))}
-          </View>
+            <View
+              style={{
+                flex: 1,
+                width: widthPercentageToDP('65%'),
+                justifyContent: 'center',
+                alignSelf: 'center',
+              }}>
+              {this.state.nmem.members.map((item, key) => (
+                <Card
+                  style={{flex: 1, alignItems: 'center', padding: 8}}
+                  key={key}>
+                  <Image
+                    source={{uri: item.image}}
+                    style={{width: 100, height: 100, borderRadius: 100 / 2}}
+                  />
+                  <Text style={{fontSize: 14}}> {item.name}</Text>
+                  <Text style={{fontSize: 7}}>{item.post}</Text>
+                </Card>
+              ))}
+            </View>
           </ScrollView>
         </View>
       </Container>

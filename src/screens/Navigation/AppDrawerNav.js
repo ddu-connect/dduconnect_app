@@ -22,7 +22,7 @@ import GalleryScreen from '../Gallery/GalleryScreen';
 import AboutUsScreen from '../StaticScreens/AboutUsScreen';
 import MeetOurTeamScreen from '../MeetOurTeam/MeetOurTeamScreen';
 import ContactUsScreen from '../StaticScreens/ContactUsScreen';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import HomeStackNavigator from './HomeStackNavigator';
 import MeetOurTeamNav from './MeetOurTeamNav';
 import CopyrightsScreen from '../StaticScreens/CopyrightsScreen';
@@ -31,49 +31,46 @@ import PrivacyPolicy from '../StaticScreens/PrivacyPolicy';
 import PlacementScreen from '../StaticScreens/PlacementScreen';
 import event from '../Events/event';
 
-
 const CustomDrawerComponent = props => (
   <SafeAreaView style={{flex: 1}}>
-        
-
-        {/* <Image style={{flex:1}}
+    {/* <Image style={{flex:1}}
                      source={require('../../assets/images/The_8th_Volume2.jpg')} /> */}
-    <ImageBackground 
-		 source={require('../../assets/images/bg-1.png')} 
-		 	style={{flex:1,height:'100%'}}>
-   
-    <ImageBackground 	style={{flex:1}}
-          imageStyle={{ bottom: 0}}
-                     source={require('../../assets/images/homepage_mobile-1.png')}>
-                  <View style={{flex:1,flexDirection:'column',alignItems:'center',alignSelf:'center',justifyContent:'flex-end'}} >
-                  
-                  {/* <Text 
+    <ImageBackground
+      source={require('../../assets/images/bg-1.png')}
+      style={{flex: 1, height: '100%'}}>
+      <ImageBackground
+        style={{flex: 1}}
+        imageStyle={{bottom: 0}}
+        source={require('../../assets/images/homepage_mobile-1.png')}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'column',
+            alignItems: 'center',
+            alignSelf: 'center',
+            justifyContent: 'flex-end',
+          }}>
+          {/* <Text 
                       style={{fontFamily:'Montserrat-Bold',fontWeight:'900',fontSize:24}}>
                         The 8th Volume</Text> */}
-                  <TouchableOpacity style={{shadowOpacity:0}}>
-                    
-                    <Button onPress={()=>{
-                      // console.log("press");
-                      props.navigation.navigate('The9ThVolume')
-                    }}
-                     color="(0,0,0,0.0)"
-                     title="Know More"></Button>
-                  </TouchableOpacity>
-                  </View>
-                  </ImageBackground>
-      
-			
-		    </ImageBackground>
-                    
-
-  
-        <View  style={{flex:2}}>
-          <ScrollView style={{flex:3,}}>
-            <DrawerItems {...props} />
-          </ScrollView>
+          <TouchableOpacity style={{shadowOpacity: 0}}>
+            <Button
+              onPress={() => {
+                // console.log("press");
+                props.navigation.navigate('The9ThVolume');
+              }}
+              color="(0,0,0,0.0)"
+              title="Know More"></Button>
+          </TouchableOpacity>
         </View>
-  
-   
+      </ImageBackground>
+    </ImageBackground>
+
+    <View style={{flex: 2}}>
+      <ScrollView style={{flex: 3}}>
+        <DrawerItems {...props} />
+      </ScrollView>
+    </View>
   </SafeAreaView>
 );
 
@@ -81,26 +78,26 @@ const MyDrawerNavigator = createDrawerNavigator(
   {
     Home: {
       screen: HomeStackNavigator,
-      navigationOptions:{
+      navigationOptions: {
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/home.png')}
-        />
-        )
-      }
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/home.png')}
+          />
+        ),
+      },
     },
     Events: {
       screen: event,
-      navigationOptions:{
+      navigationOptions: {
         drawerLabel: 'Events',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/event.png')}
-        />
-        )
-      }
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/event.png')}
+          />
+        ),
+      },
     },
     Favourite: {
       screen: FavouriteScreen,
@@ -108,10 +105,10 @@ const MyDrawerNavigator = createDrawerNavigator(
         drawerLabel: 'From The Editors Desk',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/edit.png')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/edit.png')}
+          />
+        ),
       },
     },
     PlacementScreen: {
@@ -120,10 +117,10 @@ const MyDrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Placement Screen',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/school.png')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/school.png')}
+          />
+        ),
       },
     },
     AcademicCalender: {
@@ -132,10 +129,10 @@ const MyDrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Academic Calender',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/today.png')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/today.png')}
+          />
+        ),
       },
     },
     AboutUs: {
@@ -144,10 +141,10 @@ const MyDrawerNavigator = createDrawerNavigator(
         drawerLabel: 'About Us',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/badge.png')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/badge.png')}
+          />
+        ),
       },
     },
     MeetOurTeam: {
@@ -156,10 +153,10 @@ const MyDrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Meet Our Team',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/people.png')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/people.png')}
+          />
+        ),
       },
     },
     ContactUs: {
@@ -168,37 +165,36 @@ const MyDrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Contact Us',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/send.png')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/send.png')}
+          />
+        ),
       },
     },
-    Copyrights:{
+    Copyrights: {
       screen: CopyrightsScreen,
       navigationOptions: {
         drawerLabel: 'Copyrights',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/copyrights.jpeg')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/copyrights.jpeg')}
+          />
+        ),
       },
     },
-    PrivacyPolicy:{
-      screen:PrivacyPolicy,
+    PrivacyPolicy: {
+      screen: PrivacyPolicy,
       navigationOptions: {
         drawerLabel: 'Privacy Policy',
         drawerIcon: ({tintColor}) => (
           <Image
-          style={{width: 25, height:25}}
-          source={require('../../assets/images/privacy.jpeg')}
-        />
-        )
+            style={{width: 25, height: 25}}
+            source={require('../../assets/images/privacy.jpeg')}
+          />
+        ),
       },
-    }
-
+    },
   },
   {
     initialRouteName: 'Home',
