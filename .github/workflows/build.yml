@@ -25,13 +25,26 @@ jobs:
         run: |
           npm install
 
+      - name: Preparing to Sign AAB
+        id: prepare-sign
+        run: |
+          echo "${{ secrets.SIGNING_KEY }}" > release.keystore.asc
+          gpg -d --passphrase "${{ secrets.KEY_STORE_PASSWORD }}" --batch release.keystore.asc > android/app/release.keystore
+          mkdir ~/.gradle/ && touch ~/.gradle/gradle.properties
+          echo "
+            MYAPP_UPLOAD_STORE_FILE=release.keystore
+            MYAPP_UPLOAD_KEY_ALIAS=${{ secrets.ALIAS }}
+            MYAPP_UPLOAD_STORE_PASSWORD=${{ secrets.KEY_STORE_PASSWORD }}
+            MYAPP_UPLOAD_KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}
+            " >> ~/.gradle/gradle.properties
+
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+
       - name: set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-
-      - name: Make Gradlew Executable
-        run: cd android && chmod +x ./gradlew
 
       - name: Build Android App Bundle
         id: build
