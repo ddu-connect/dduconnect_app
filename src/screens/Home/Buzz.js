@@ -59,7 +59,7 @@ export default class Buzz extends Component {
       80: 'Tech',
     };
 
-    const base = `https://raw.githubusercontent.com/Aatish13/DDUConnectDatabase/master/Buzz.json`;
+    const base = `https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/Buzz.json`;
 
     if (!this.state.articles) {
       return fetch(base)
