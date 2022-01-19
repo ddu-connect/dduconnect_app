@@ -176,7 +176,7 @@ export default class HomeScreen extends Component {
     if (this.state.firstTime == true) {
       console.log('get ');
       fetch(
-        'https://raw.githubusercontent.com/Aatish13/DDUConnectDatabase/master/Notification.json',
+        'https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/Notification.json',
         {method: 'GET'},
       )
         .then(response => response.json())
