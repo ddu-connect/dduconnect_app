@@ -39,7 +39,7 @@ export default class LatestArticle extends Component {
   componentDidMount() {
     if (!this.state.articles) {
       return fetch(
-        'https://raw.githubusercontent.com/Aatish13/DDUConnectDatabase/master/Category187.json',
+        'https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/Category187.json',
       )
         .then(response => response.json())
         .then(responseJson => {

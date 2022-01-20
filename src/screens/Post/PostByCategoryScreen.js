@@ -72,7 +72,7 @@ export default class PostByCategoryScreen extends Component {
     this.props.navigation.setParams({headerTitles: cname});
     // https://raw.githubusercontent.com/Aatish13/DDUConnectDatabase/master/Category80.json
 
-    var base = `https://raw.githubusercontent.com/Aatish13/DDUConnectDatabase/master/Category${cid}.json`;
+    var base = `https://raw.githubusercontent.com/ddu-connect/dduconnect_database/master/Category${cid}.json`;
     // if(cid=='173') {
     //     base = "https://dduconect.in/wp-json/wp/v2/posts/?_embed&&categories=173";
 

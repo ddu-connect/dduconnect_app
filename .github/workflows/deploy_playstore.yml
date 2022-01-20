@@ -1,15 +1,11 @@
 name: Deploy to PlayStore
 
 on:
-  push:
-    branches: [ master ] 
-    tags:
-      - "v*.*.*"
   pull_request:
     branches: [ master ]
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -45,6 +41,17 @@ jobs:
         with:
           java-version: 1.8
 
+      # Gradle cache for faster builds
+      - name: Gradle cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Build Android App Bundle
         id: build
         run: |
@@ -55,14 +62,33 @@ jobs:
           curl -LO https://github.com/google/bundletool/releases/download/1.8.1/bundletool-all-1.8.1.jar
           mv bundletool-all-1.8.1.jar bundletool.jar
           java -jar bundletool.jar build-apks --bundle=android/app/build/outputs/bundle/release/app-release.aab --output=app-release.apks --mode=universal --ks=android/app/release.keystore --ks-pass=pass:${{ secrets.KEY_STORE_PASSWORD }} --ks-key-alias=${{ secrets.ALIAS }} --key-pass=pass:${{ secrets.KEY_PASSWORD }}
-          unzip -p app-release.apks universal.apk > android/app/build/outputs/bundle/release/app-release.apk
+          unzip -p app-release.apks universal.apk > android/app/build/outputs/bundle/release/ddu_connect_universal_${{ steps.vars.outputs.sha_short }}.apk
 
-      - name: Upload AAB
+      - name: Upload AAB and APKs
         id: uploadArtifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
             name: app
-            path: android/app/build/outputs/bundle/release/app-release.aab
+            path: |
+              android/app/build/outputs/bundle/release/app-release.aab
+              android/app/build/outputs/bundle/release/ddu_connect*.apk
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download AAB and APKs
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: 'app'
+
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
       - name: Create service_account.json
         id: createServiceAccount
@@ -75,7 +101,7 @@ jobs:
           serviceAccountJson: service_account.json
           packageName: com.dduconnect.dduconnect
           releaseFiles: |
-            android/app/build/outputs/bundle/release/app-release.aab
+            app-release.aab
           track: production
           whatsNewDirectory: whatsnew
 
@@ -84,7 +110,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            android/app/build/outputs/bundle/release/app-release.*
+            app-release.aab
+            ddu_connect*.apk
           tag_name: ${{ steps.vars.outputs.sha_short }}
           name: Release ${{ steps.vars.outputs.sha_short }}
           body_path: whatsnew/whatsnew-en-US
