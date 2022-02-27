@@ -20,7 +20,7 @@ export default class SplashScreen extends Component {
           height: '100%',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#fff',
+          // backgroundColor: '#fff',
         }}>
         <Image
           style={{
@@ -28,10 +28,10 @@ export default class SplashScreen extends Component {
             height: '100%',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: '80%',
-            marginRight: '5%',
+            // marginTop: '80%',
+            // marginRight: '5%',
           }}
-          source={require('../../assets/images/dc_logo_vol9.png')}
+          source={require('../../assets/images/dc_logo_vol10.jpeg')}
         />
         {/* <ImageBackground 
 		 source={require('../../assets/images/splash_bg1.jpg')} 
