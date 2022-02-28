@@ -28,6 +28,7 @@ export default class SplashScreen extends Component {
             height: '100%',
             justifyContent: 'center',
             alignItems: 'center',
+            resizeMode: 'stretch',
             // marginTop: '80%',
             // marginRight: '5%',
           }}
