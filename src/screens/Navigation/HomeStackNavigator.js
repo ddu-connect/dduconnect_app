@@ -28,8 +28,7 @@ import HomeScreen from '../Home/HomeScreen';
 import PostByCategoryScreen from '../Post/PostByCategoryScreen';
 import CategoryPostCard from '../../components/CategoryPostCard';
 import PastYearPapers from '../StaticScreens/PastYearPapers';
-import The8thVolumeScreen from '../StaticScreens/The8thVolumeScreen';
-import The9thVolumeScreen from '../StaticScreens/The9thVolumeScreen';
+import The10thVolumeScreen from '../StaticScreens/The10thVolumeScreen';
 import AlertWebView from '../Alert/AlertWebView';
 const HomeStackNavigator = createStackNavigator(
   {
@@ -48,8 +47,8 @@ const HomeStackNavigator = createStackNavigator(
     PastYearPapers: {
       screen: PastYearPapers,
     },
-    The9ThVolume: {
-      screen: The9thVolumeScreen,
+    The10ThVolume: {
+      screen: The10thVolumeScreen,
       navigationOptions: {
         headerShown: false,
       },
