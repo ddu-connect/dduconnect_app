@@ -10,9 +10,9 @@ import {
 } from 'react-native';
 import {Icon} from 'native-base';
 
-export default class The9thVolumeScreen extends Component {
+export default class The10thVolumeScreen extends Component {
   static navigationOptions = {
-    drawerLabel: 'The9thVolume',
+    drawerLabel: 'The10ThVolume',
   };
 
   render() {
@@ -28,16 +28,28 @@ export default class The9thVolumeScreen extends Component {
             />
           </TouchableOpacity>
         </View>
-        <ImageBackground
+        <Image
+          source={require('../../assets/images/homepage_mobile-2.jpeg')}
           style={{
             zIndex: -1,
             width: '100%',
             height: '100%',
-            marginTop: -60,
+            marginTop: -57,
+            justifyContent: 'center',
+            resizeMode: 'center',
+            backgroundColor: '#031022',
+          }}
+        />
+        {/* <ImageBackground
+          style={{
+            zIndex: -1,
+            width: '100%',
+            height: '100%',
+            marginTop: -57,
             justifyContent: 'center',
           }}
-          imageStyle={{width: '100%', resizeMode: 'cover'}}
-          source={require('../../assets/images/homepage_mobile.png')}></ImageBackground>
+          imageStyle={{width: '100%', height: '100%', resizeMode: 'stretch'}}
+          source={require('../../assets/images/homepage_mobile-2.jpeg')}></ImageBackground> */}
       </View>
     );
   }

@@ -41,7 +41,7 @@ const CustomDrawerComponent = props => (
       <ImageBackground
         style={{flex: 1}}
         imageStyle={{bottom: 0}}
-        source={require('../../assets/images/homepage_mobile-1.png')}>
+        source={require('../../assets/images/homepage_mobile-1.jpeg')}>
         <View
           style={{
             flex: 1,
@@ -57,7 +57,7 @@ const CustomDrawerComponent = props => (
             <Button
               onPress={() => {
                 // console.log("press");
-                props.navigation.navigate('The9ThVolume');
+                props.navigation.navigate('The10ThVolume');
               }}
               color="(0,0,0,0.0)"
               title="Know More"></Button>
